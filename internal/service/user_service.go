@@ -7,12 +7,13 @@ import (
 	"io"
 	"net/http"
 
-	"gorm.io/gorm"
 	"magickingdom-go/internal/config"
 	"magickingdom-go/internal/dto"
 	"magickingdom-go/internal/models"
 	"magickingdom-go/internal/repository"
 	"magickingdom-go/internal/utils"
+
+	"gorm.io/gorm"
 )
 
 // WechatSession 微信登录返回的 session 信息
@@ -68,6 +69,8 @@ func (s *userService) WechatLogin(code string) (*dto.WechatLoginResponse, error)
 				OpenID:     session.OpenID,
 				UnionID:    session.UnionID,
 				SessionKey: session.SessionKey,
+				Nickname:   "新用户",
+				AvatarURL:  "https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0",
 				Status:     1,
 			}
 			if err := s.userRepo.Create(user); err != nil {

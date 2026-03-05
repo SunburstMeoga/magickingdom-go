@@ -4,6 +4,10 @@
 
 set -e
 
+# 设置 Go 环境变量
+export GOSUMDB=sum.golang.org
+export GOPROXY=https://goproxy.cn,direct
+
 echo "🚀 MagicKingdom Go 快速启动"
 echo "=========================="
 

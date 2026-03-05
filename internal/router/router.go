@@ -1,10 +1,11 @@
 package router
 
 import (
-	"github.com/gin-gonic/gin"
 	"magickingdom-go/internal/handler"
 	"magickingdom-go/internal/middleware"
 	"magickingdom-go/internal/utils"
+
+	"github.com/gin-gonic/gin"
 )
 
 // SetupRouter 设置路由
@@ -18,13 +19,6 @@ func SetupRouter(
 	r.Use(middleware.LoggerMiddleware())
 	r.Use(middleware.RecoveryMiddleware())
 	r.Use(middleware.CORSMiddleware())
-
-	// 健康检查
-	r.GET("/health", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"status": "ok",
-		})
-	})
 
 	// API v1 路由组
 	v1 := r.Group("/api/v1")

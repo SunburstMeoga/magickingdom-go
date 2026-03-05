@@ -1,0 +1,31 @@
+# 开发环境配置
+server:
+  port: 8080
+  mode: debug # debug, release, test
+
+database:
+  host: localhost
+  port: 3306
+  user: root
+  password: 1013
+  dbname: magickingdom
+  charset: utf8mb4
+  parse_time: true
+  loc: Local
+  max_idle_conns: 10
+  max_open_conns: 100
+
+jwt:
+  secret: your-secret-key-change-in-production
+  expire_hours: 168 # 7天
+
+wechat:
+  app_id: your_wechat_app_id
+  app_secret: your_wechat_app_secret
+  login_url: https://api.weixin.qq.com/sns/jscode2session
+
+log:
+  level: debug # debug, info, warn, error
+  format: json # json, text
+  output: stdout # stdout, file
+  file_path: logs/app.log

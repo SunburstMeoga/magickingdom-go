@@ -33,7 +33,8 @@ func (r *SeatOccupancyRepository) JoinSeat(occupancy *models.SeatOccupancy) erro
 
 // LeaveSeat 用户离座（软删除或更新状态）
 func (r *SeatOccupancyRepository) LeaveSeat(userID uint) error {
-	return r.db.Where("user_id = ? AND status = ?", userID, 1).
+	return r.db.Model(&models.SeatOccupancy{}).
+		Where("user_id = ? AND status = ?", userID, 1).
 		Updates(map[string]interface{}{"status": 0}).Error
 }
 

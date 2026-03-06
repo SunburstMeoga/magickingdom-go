@@ -11,6 +11,7 @@ import (
 // SetupRouter 设置路由
 func SetupRouter(
 	userHandler *handler.UserHandler,
+	seatHandler *handler.SeatHandler,
 	jwtUtil *utils.JWTUtil,
 ) *gin.Engine {
 	r := gin.New()
@@ -35,6 +36,12 @@ func SetupRouter(
 		{
 			user.GET("/info", userHandler.GetUserInfo)
 			user.PUT("/info", userHandler.UpdateUserInfo)
+		}
+
+		// 座位相关路由（无需 JWT）
+		seats := v1.Group("/seats")
+		{
+			seats.GET("/layout", seatHandler.GetSeatLayout)
 		}
 	}
 

@@ -1,0 +1,130 @@
+package service
+
+import (
+	"magickingdom-go/internal/models"
+)
+
+// SeatService 座位服务
+type SeatService struct{}
+
+// NewSeatService 创建座位服务实例
+func NewSeatService() *SeatService {
+	return &SeatService{}
+}
+
+// GetSeatLayout 获取座位布局信息
+func (s *SeatService) GetSeatLayout() *models.SeatLayout {
+	return &models.SeatLayout{
+		DJ: []models.SeatPosition{
+			{ID: "dj-top", Label: "DJ", Type: "dj", Left: 200, Top: 75.47, Width: 320.47, Height: 53.41, Rotation: 0},
+			{ID: "dj-bottom", Label: "DJ", Type: "dj", Left: 282.15, Top: 656.03, Width: 130.05, Height: 54.57, Rotation: 0},
+		},
+		Tables: []models.SeatPosition{
+			{ID: "T01", Label: "T01", Type: "table", Left: 515.45, Top: 155.59, Width: 24.75, Height: 43.44, Rotation: 0},
+			{ID: "T51", Label: "T51", Type: "table", Left: 149.69, Top: 155.59, Width: 24.75, Height: 43.44, Rotation: 0},
+			{ID: "T53", Label: "T53", Type: "table", Left: 149.69, Top: 285.92, Width: 24.75, Height: 43.44, Rotation: 0},
+			{ID: "T04", Label: "T04", Type: "table", Left: 465.75, Top: 188.36, Width: 24.75, Height: 43.44, Rotation: 0},
+			{ID: "T09", Label: "T09", Type: "table", Left: 406.14, Top: 188.36, Width: 24.75, Height: 43.44, Rotation: 0},
+			{ID: "T16", Label: "T16", Type: "table", Left: 355.21, Top: 188.36, Width: 24.75, Height: 43.44, Rotation: 0},
+			{ID: "T19", Label: "T19", Type: "table", Left: 354.05, Top: 312.70, Width: 27.78, Height: 43.44, Rotation: 0},
+			{ID: "T21", Label: "T21", Type: "table", Left: 354.05, Top: 437.98, Width: 27.78, Height: 43.44, Rotation: 0},
+			{ID: "T23", Label: "T23", Type: "table", Left: 309.93, Top: 188.36, Width: 24.75, Height: 43.44, Rotation: 0},
+			{ID: "T26", Label: "T26", Type: "table", Left: 309.93, Top: 312.70, Width: 24.75, Height: 43.44, Rotation: 0},
+			{ID: "T29", Label: "T29", Type: "table", Left: 308.77, Top: 437.98, Width: 26.77, Height: 43.44, Rotation: 0},
+			{ID: "T35", Label: "T35", Type: "table", Left: 260, Top: 437.98, Width: 24.75, Height: 43.44, Rotation: 0},
+			{ID: "T13", Label: "T13", Type: "table", Left: 405.13, Top: 437.98, Width: 27.28, Height: 43.44, Rotation: 0},
+			{ID: "T31", Label: "T31", Type: "table", Left: 260, Top: 188.36, Width: 24.75, Height: 43.44, Rotation: 0},
+			{ID: "T38", Label: "T38", Type: "table", Left: 200.03, Top: 188.36, Width: 24.75, Height: 43.44, Rotation: 0},
+			{ID: "T52", Label: "T52", Type: "table", Left: 149.69, Top: 220.76, Width: 24.75, Height: 43.44, Rotation: 0},
+			{ID: "T03", Label: "T03", Type: "table", Left: 515.45, Top: 285.92, Width: 24.75, Height: 43.44, Rotation: 0},
+			{ID: "T02", Label: "T02", Type: "table", Left: 515.45, Top: 220.76, Width: 24.75, Height: 43.44, Rotation: 0},
+			{ID: "T55", Label: "T55", Type: "table", Left: 149.69, Top: 351.59, Width: 24.75, Height: 43.44, Rotation: 0},
+			{ID: "T08", Label: "T08", Type: "table", Left: 465.75, Top: 251.06, Width: 24.75, Height: 43.44, Rotation: 0},
+			{ID: "T10", Label: "T10", Type: "table", Left: 406.14, Top: 251.06, Width: 24.75, Height: 43.44, Rotation: 0},
+			{ID: "T18", Label: "T18", Type: "table", Left: 355.21, Top: 251.06, Width: 24.75, Height: 43.44, Rotation: 0},
+			{ID: "T20", Label: "T20", Type: "table", Left: 354.05, Top: 375.84, Width: 27.78, Height: 43.44, Rotation: 0},
+			{ID: "T22", Label: "T22", Type: "table", Left: 354.05, Top: 501.12, Width: 27.78, Height: 43.44, Rotation: 0},
+			{ID: "T25", Label: "T25", Type: "table", Left: 309.93, Top: 251.06, Width: 24.75, Height: 43.44, Rotation: 0},
+			{ID: "T28", Label: "T28", Type: "table", Left: 308.77, Top: 375.84, Width: 26.77, Height: 43.44, Rotation: 0},
+			{ID: "T33", Label: "T33", Type: "table", Left: 260, Top: 375.84, Width: 24.75, Height: 43.44, Rotation: 0},
+			{ID: "T12", Label: "T12", Type: "table", Left: 405.13, Top: 375.84, Width: 27.28, Height: 43.44, Rotation: 0},
+			{ID: "T30", Label: "T30", Type: "table", Left: 308.77, Top: 501.12, Width: 26.77, Height: 43.44, Rotation: 0},
+			{ID: "T36", Label: "T36", Type: "table", Left: 260, Top: 501.12, Width: 24.75, Height: 43.44, Rotation: 0},
+			{ID: "T15", Label: "T15", Type: "table", Left: 405.13, Top: 501.12, Width: 27.28, Height: 43.44, Rotation: 0},
+			{ID: "T32", Label: "T32", Type: "table", Left: 260, Top: 251.06, Width: 24.75, Height: 43.44, Rotation: 0},
+			{ID: "T39", Label: "T39", Type: "table", Left: 200.03, Top: 251.06, Width: 24.75, Height: 43.44, Rotation: 0},
+			{ID: "T50", Label: "T50", Type: "table", Left: 207.61, Top: 351.59, Width: 24.75, Height: 43.44, Rotation: 0},
+			{ID: "T05", Label: "T05", Type: "table", Left: 515.45, Top: 351.59, Width: 24.75, Height: 43.44, Rotation: 0},
+			{ID: "T36", Label: "T36", Type: "table", Left: 457.16, Top: 351.59, Width: 24.75, Height: 43.44, Rotation: 0},
+		},
+		Cards: []models.SeatPosition{
+			{ID: "C09+", Label: "C09+", Type: "card", Left: 303.08, Top: 573.36, Width: 26.27, Height: 58.60, Rotation: 0},
+			{ID: "C08", Label: "C08", Type: "card", Left: 419.78, Top: 573.36, Width: 26.27, Height: 58.60, Rotation: 0},
+			{ID: "C10", Label: "C10", Type: "card", Left: 244.49, Top: 573.36, Width: 26.27, Height: 58.60, Rotation: 0},
+			{ID: "C11", Label: "C11", Type: "card", Left: 188.92, Top: 585.99, Width: 26.27, Height: 58.60, Rotation: 0},
+			{ID: "C18", Label: "C18", Type: "card", Left: 95.46, Top: 601.65, Width: 27.28, Height: 56.58, Rotation: 0},
+			{ID: "C22+", Label: "C22+", Type: "card", Left: 566.53, Top: 601.65, Width: 27.28, Height: 56.58, Rotation: 0},
+			{ID: "C18+", Label: "C18+", Type: "card", Left: 95.46, Top: 681.47, Width: 27.28, Height: 56.58, Rotation: 0},
+			{ID: "C22", Label: "C22", Type: "card", Left: 566.53, Top: 681.47, Width: 27.28, Height: 56.58, Rotation: 0},
+			{ID: "6", Label: "C06", Type: "card", Left: 476.36, Top: 585.99, Width: 26.27, Height: 58.60, Rotation: 0},
+			{ID: "C06+", Label: "C06+", Type: "card", Left: 419.78, Top: 694.60, Width: 30.82, Height: 57.59, Rotation: -90},
+			{ID: "C10+", Label: "C10+", Type: "card", Left: 215.19, Top: 694.60, Width: 30.82, Height: 57.59, Rotation: -90},
+			{ID: "C19", Label: "C19", Type: "card", Left: 136.38, Top: 786.54, Width: 30.82, Height: 63.65, Rotation: -90},
+			{ID: "C20", Label: "C20", Type: "card", Left: 313.69, Top: 786.54, Width: 30.82, Height: 63.65, Rotation: -90},
+			{ID: "C19+", Label: "C19+", Type: "card", Left: 213.17, Top: 786.54, Width: 30.82, Height: 63.65, Rotation: -90},
+			{ID: "C21", Label: "C21", Type: "card", Left: 412.71, Top: 786.54, Width: 30.82, Height: 63.65, Rotation: -90},
+			{ID: "C21+", Label: "C21+", Type: "card", Left: 489.49, Top: 786.54, Width: 30.82, Height: 63.65, Rotation: -90},
+			{ID: "C13", Label: "C13", Type: "card", Left: 480.40, Top: 865.35, Width: 30.82, Height: 63.65, Rotation: -90},
+			{ID: "C25", Label: "C25", Type: "card", Left: 369.26, Top: 865.35, Width: 30.82, Height: 63.65, Rotation: -90},
+			{ID: "C28+", Label: "C28+", Type: "card", Left: 151.03, Top: 942.13, Width: 30.82, Height: 63.65, Rotation: -90},
+			{ID: "C31+", Label: "C31+", Type: "card", Left: 584.97, Top: 942.13, Width: 30.82, Height: 63.65, Rotation: -90},
+			{ID: "C25+", Label: "C25+", Type: "card", Left: 258.12, Top: 865.35, Width: 30.82, Height: 63.65, Rotation: -90},
+			{ID: "C28", Label: "C28", Type: "card", Left: 42.42, Top: 942.13, Width: 30.82, Height: 63.65, Rotation: -90},
+			{ID: "C31", Label: "C31", Type: "card", Left: 476.36, Top: 942.13, Width: 30.82, Height: 63.65, Rotation: -90},
+			{ID: "C30", Label: "C30", Type: "card", Left: 367.75, Top: 942.13, Width: 30.82, Height: 63.65, Rotation: -90},
+			{ID: "C03", Label: "C03", Type: "card", Left: 258.12, Top: 942.13, Width: 30.82, Height: 63.65, Rotation: -90},
+			{ID: "C26", Label: "C26", Type: "card", Left: 146.48, Top: 865.35, Width: 30.82, Height: 63.65, Rotation: -90},
+			{ID: "C12", Label: "C12", Type: "card", Left: 168.21, Top: 528.40, Width: 29.80, Height: 67.69, Rotation: -90},
+			{ID: "C16", Label: "C16", Type: "card", Left: 125.77, Top: 471.82, Width: 30.31, Height: 56.58, Rotation: 180},
+			{ID: "C03", Label: "C03", Type: "card", Left: 594.40, Top: 471.68, Width: 30.31, Height: 56.58, Rotation: 180},
+			{ID: "C15", Label: "C15", Type: "card", Left: 125.77, Top: 361.19, Width: 30.31, Height: 56.58, Rotation: 180},
+			{ID: "C02", Label: "C02", Type: "card", Left: 594.40, Top: 361.19, Width: 30.31, Height: 56.58, Rotation: 180},
+			{ID: "C32", Label: "C32", Type: "card", Left: 125.77, Top: 250.06, Width: 30.31, Height: 56.58, Rotation: 180},
+			{ID: "C01", Label: "C01", Type: "card", Left: 594.40, Top: 250.06, Width: 30.31, Height: 56.58, Rotation: 180},
+			{ID: "C05", Label: "C05", Type: "card", Left: 454.63, Top: 528.40, Width: 29.80, Height: 67.69, Rotation: -90},
+			{ID: "C09", Label: "C09", Type: "card", Left: 361.18, Top: 573.36, Width: 26.27, Height: 58.60, Rotation: 0},
+		},
+		VIPs: []models.SeatPosition{
+			{ID: "V19+", Label: "V19+", Type: "vip", Left: 29.28, Top: 351.59, Width: 30.31, Height: 56.58, Rotation: 0},
+			{ID: "V02", Label: "V02", Type: "vip", Left: 629.93, Top: 351.59, Width: 30.31, Height: 56.58, Rotation: 0},
+			{ID: "V18", Label: "V18", Type: "vip", Left: 29.28, Top: 556.19, Width: 30.31, Height: 56.58, Rotation: 0},
+			{ID: "V03", Label: "V03", Type: "vip", Left: 629.93, Top: 556.19, Width: 30.31, Height: 56.58, Rotation: 0},
+			{ID: "V20+", Label: "V20+", Type: "vip", Left: 29.28, Top: 167.21, Width: 30.31, Height: 56.58, Rotation: 0},
+			{ID: "V01", Label: "V01", Type: "vip", Left: 629.93, Top: 167.21, Width: 30.31, Height: 56.58, Rotation: 0},
+			{ID: "V19", Label: "V19", Type: "vip", Left: 29.28, Top: 434.95, Width: 30.31, Height: 56.58, Rotation: 0},
+			{ID: "V20+", Label: "V20+", Type: "vip", Left: 629.93, Top: 434.95, Width: 30.31, Height: 56.58, Rotation: 0},
+			{ID: "V16+", Label: "V16+", Type: "vip", Left: 29.28, Top: 635.50, Width: 30.31, Height: 56.58, Rotation: 0},
+			{ID: "V30+", Label: "V30+", Type: "vip", Left: 629.93, Top: 635.50, Width: 30.31, Height: 56.58, Rotation: 0},
+			{ID: "V16", Label: "V16", Type: "vip", Left: 29.28, Top: 714.81, Width: 30.31, Height: 56.58, Rotation: 0},
+			{ID: "V05", Label: "V05", Type: "vip", Left: 629.93, Top: 714.81, Width: 30.31, Height: 56.58, Rotation: 0},
+			{ID: "V06", Label: "V06", Type: "vip", Left: 507.17, Top: 1030.54, Width: 34.86, Height: 88.91, Rotation: -90},
+			{ID: "V08", Label: "V08", Type: "vip", Left: 232.36, Top: 1030.54, Width: 34.86, Height: 88.91, Rotation: -90},
+			{ID: "V09", Label: "V09", Type: "vip", Left: 369.77, Top: 1030.54, Width: 34.86, Height: 88.91, Rotation: -90},
+			{ID: "V10", Label: "V10", Type: "vip", Left: 94.96, Top: 1030.54, Width: 34.86, Height: 88.91, Rotation: -90},
+			{ID: "V15+", Label: "V15+", Type: "vip", Left: 42.92, Top: 1112.88, Width: 35.36, Height: 63.15, Rotation: -90},
+			{ID: "V11+", Label: "V11+", Type: "vip", Left: 501.11, Top: 1112.88, Width: 35.36, Height: 63.15, Rotation: -90},
+			{ID: "V13", Label: "V13", Type: "vip", Left: 229.84, Top: 1112.88, Width: 35.36, Height: 63.15, Rotation: -90},
+			{ID: "V15", Label: "V15", Type: "vip", Left: 125.77, Top: 1112.88, Width: 35.36, Height: 63.15, Rotation: -90},
+			{ID: "V11", Label: "V11", Type: "vip", Left: 583.96, Top: 1112.88, Width: 35.36, Height: 63.15, Rotation: -90},
+			{ID: "V12+", Label: "V12+", Type: "vip", Left: 313.69, Top: 1112.88, Width: 35.36, Height: 63.15, Rotation: -90},
+			{ID: "V12", Label: "V12", Type: "vip", Left: 397.05, Top: 1112.88, Width: 35.36, Height: 63.15, Rotation: -90},
+			{ID: "V20", Label: "V20", Type: "vip", Left: 29.28, Top: 243.99, Width: 30.31, Height: 56.58, Rotation: 0},
+			{ID: "V10+", Label: "V10+", Type: "vip", Left: 629.93, Top: 243.99, Width: 30.31, Height: 56.58, Rotation: 0},
+		},
+		FirstClass: []models.SeatPosition{
+			{ID: "FC01", Label: "头等舱01", Type: "first-class", Left: 105.06, Top: 1227.55, Width: 69.21, Height: 100.53, Rotation: -90},
+			{ID: "FC02", Label: "头等舱02", Type: "first-class", Left: 484.94, Top: 1227.55, Width: 69.21, Height: 100.53, Rotation: -90},
+		},
+	}
+}
+

@@ -51,8 +51,12 @@ func main() {
 	userService := service.NewUserService(userRepo, jwtUtil, cfg)
 	userHandler := handler.NewUserHandler(userService)
 
+	// 初始化座位服务
+	seatService := service.NewSeatService()
+	seatHandler := handler.NewSeatHandler(seatService)
+
 	// 设置路由
-	r := router.SetupRouter(userHandler, jwtUtil)
+	r := router.SetupRouter(userHandler, seatHandler, jwtUtil)
 
 	// 启动服务器
 	addr := fmt.Sprintf(":%d", cfg.Server.Port)

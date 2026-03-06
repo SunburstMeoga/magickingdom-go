@@ -28,6 +28,8 @@ func SetupRouter(
 		auth := v1.Group("/auth")
 		{
 			auth.POST("/wechat/login", userHandler.WechatLogin)
+			// 测试用：生成测试 Token（生产环境应删除）
+			auth.POST("/test-token", userHandler.GenerateTestToken)
 		}
 
 		// 用户相关路由（需要 JWT）
@@ -38,10 +40,21 @@ func SetupRouter(
 			user.PUT("/info", userHandler.UpdateUserInfo)
 		}
 
-		// 座位相关路由（无需 JWT）
+		// 座位相关路由
 		seats := v1.Group("/seats")
 		{
+			// 无需认证的接口
 			seats.GET("/layout", seatHandler.GetSeatLayout)
+			seats.GET("/occupancy", seatHandler.GetSeatOccupancyInfo)
+
+			// 需要认证的接口
+			seatsAuth := seats.Group("")
+			seatsAuth.Use(middleware.AuthMiddleware(jwtUtil))
+			{
+				seatsAuth.GET("/my-seat", seatHandler.GetUserCurrentSeat)
+				seatsAuth.POST("/join", seatHandler.JoinSeat)
+				seatsAuth.POST("/leave", seatHandler.LeaveSeat)
+			}
 		}
 	}
 

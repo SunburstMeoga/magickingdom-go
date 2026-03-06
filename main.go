@@ -53,7 +53,9 @@ func main() {
 
 	// 初始化座位服务
 	seatService := service.NewSeatService()
-	seatHandler := handler.NewSeatHandler(seatService)
+	seatOccupancyRepo := repository.NewSeatOccupancyRepository(db)
+	seatOccupancyService := service.NewSeatOccupancyService(seatOccupancyRepo)
+	seatHandler := handler.NewSeatHandler(seatService, seatOccupancyService)
 
 	// 设置路由
 	r := router.SetupRouter(userHandler, seatHandler, jwtUtil)

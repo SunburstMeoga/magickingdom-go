@@ -33,7 +33,7 @@ func InitDB(cfg *config.Config) (*gorm.DB, error) {
 	sqlDB.SetConnMaxLifetime(time.Hour)
 
 	// 自动迁移（开发环境使用，生产环境建议使用 migrate 工具）
-	if err := db.AutoMigrate(&models.User{}); err != nil {
+	if err := db.AutoMigrate(&models.User{}, &models.SeatOccupancy{}); err != nil {
 		return nil, fmt.Errorf("自动迁移失败: %w", err)
 	}
 

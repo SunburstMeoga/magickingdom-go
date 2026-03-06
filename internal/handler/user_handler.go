@@ -102,3 +102,28 @@ func (h *UserHandler) UpdateUserInfo(c *gin.Context) {
 	response.Success(c, userInfo)
 }
 
+// GenerateTestToken 生成测试 Token（仅用于开发测试）
+// @Summary 生成测试 Token
+// @Description 为指定用户生成测试用的 JWT Token（仅开发环境使用）
+// @Tags 用户
+// @Accept json
+// @Produce json
+// @Param request body dto.TestTokenRequest true "测试 Token 请求"
+// @Success 200 {object} response.Response{data=dto.WechatLoginResponse}
+// @Router /api/v1/auth/test-token [post]
+func (h *UserHandler) GenerateTestToken(c *gin.Context) {
+	var req dto.TestTokenRequest
+	if err := c.ShouldBindJSON(&req); err != nil {
+		response.BadRequest(c, "请求参数错误: "+err.Error())
+		return
+	}
+
+	result, err := h.userService.GenerateTestToken(req.UserID)
+	if err != nil {
+		response.Error(c, 500, "生成 Token 失败: "+err.Error())
+		return
+	}
+
+	response.Success(c, result)
+}
+

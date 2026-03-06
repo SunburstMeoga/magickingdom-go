@@ -40,3 +40,8 @@ type UserInfoDTO struct {
 	Status    int    `json:"status"`
 }
 
+// TestTokenRequest 测试 Token 请求
+type TestTokenRequest struct {
+	UserID uint `json:"user_id" binding:"required"` // 用户ID
+}
+

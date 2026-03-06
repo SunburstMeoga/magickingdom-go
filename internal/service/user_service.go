@@ -30,6 +30,7 @@ type UserService interface {
 	WechatLogin(code string) (*dto.WechatLoginResponse, error)
 	GetUserInfo(userID uint) (*dto.UserInfoDTO, error)
 	UpdateUserInfo(userID uint, req *dto.UpdateUserRequest) (*dto.UserInfoDTO, error)
+	GenerateTestToken(userID uint) (*dto.WechatLoginResponse, error)
 }
 
 // userService 用户服务实现
@@ -207,5 +208,28 @@ func (s *userService) modelToDTO(user *models.User) dto.UserInfoDTO {
 		Email:     user.Email,
 		Status:    user.Status,
 	}
+}
+
+// GenerateTestToken 生成测试 Token（仅用于开发测试）
+func (s *userService) GenerateTestToken(userID uint) (*dto.WechatLoginResponse, error) {
+	// 查询用户是否存在
+	user, err := s.userRepo.FindByID(userID)
+	if err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, errors.New("用户不存在")
+		}
+		return nil, err
+	}
+
+	// 生成 JWT Token
+	token, err := s.jwtUtil.GenerateToken(user.ID, user.OpenID)
+	if err != nil {
+		return nil, fmt.Errorf("生成 token 失败: %w", err)
+	}
+
+	return &dto.WechatLoginResponse{
+		Token: token,
+		User:  s.modelToDTO(user),
+	}, nil
 }
 
